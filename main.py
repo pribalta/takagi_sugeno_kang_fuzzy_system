@@ -37,6 +37,8 @@ def main():
     x, y = parse_dataset(flags.dataset)
     x, y = shuffle(x, y)
 
+    print(f'Loaded dataset from: {flags.dataset}')
+
     # prepare train/test split
     x_train = x[:125]
     y_train = y[:125]
@@ -44,15 +46,22 @@ def main():
     x_test = x[125:]
     y_test = y[125:]
 
+    print(f'Number of training samples: {len(x_train)}')
+    print(f'Number of test samples: {len(x_test)}')
+
     # fit the fuzzy classifier
     cls = Classifier()
+
+    print('Fitting classifier to data:')
+
     cls.fit(x_train, y_train)
 
     # predict
+    print('Predicting unseen data:')
     y_pred = cls.predict(x_test)
 
     accuracy = accuracy_score(y_test, y_pred)
-    print(f'Accuracy: {accuracy}')
+    print(f'\taccuracy: {accuracy}')
 
 
 if __name__ == '__main__':

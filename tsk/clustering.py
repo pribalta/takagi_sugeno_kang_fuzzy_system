@@ -47,10 +47,14 @@ class CMeansClustering:
 
     @property
     def center(self) -> np.ndarray:
+        assert self._fitted, 'You need to fit the clustering algorithm first!'
+
         return self._center
 
     @property
     def delta(self) -> np.ndarray:
+        assert self._fitted, 'You need to fit the clustering algorithm first!'
+
         return self._variance
 
     def fit(self, x: np.ndarray, y: np.ndarray = None) -> Any:
@@ -75,7 +79,7 @@ class CMeansClustering:
         for t in range(self._max_iters):
             u, v, loss, signal = self._update(x, u)
             self._losses.append(loss)
-            print('Iter: {} - Loss: {:.4f}'.format(t, loss))
+            print('\titer: {} - loss: {:.4f}'.format(t, loss))
             if signal:
                 break
 
