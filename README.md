@@ -9,7 +9,7 @@ The classifier is built around two components:
 * A logistic regressor that performs the fitting adapted to the conditioned firing levels
 
 The implementation of the C-Means clustering method can be found in [tsk/clustering.py](tsk/clustering.py)
-The implementation of the fuzzy classifier can be found in [tsk/clustering.py](tsk/classifier.py)
+The implementation of the fuzzy classifier can be found in [tsk/classifier.py](tsk/classifier.py)
 
 ## Data
 
