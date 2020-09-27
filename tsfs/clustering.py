@@ -58,7 +58,15 @@ class CMeansClustering(Cluster):
         self._losses = None
         self._dimensions = None
 
-    def fit(self, x: np.ndarray, y: np.ndarray) -> Any:
+    @property
+    def center(self) -> np.ndarray:
+        return self._center
+
+    @property
+    def delta(self) -> np.ndarray:
+        return self._variance
+
+    def fit(self, x: np.ndarray, y: np.ndarray = None) -> Any:
         """
         Fit a set of measurements to the model
         :param x: (np.ndarray) Vector with inputs
@@ -77,14 +85,12 @@ class CMeansClustering(Cluster):
 
         self._losses = []
 
-        print('CMeans clustering starting...')
         for t in range(self._max_iters):
             u, v, loss, signal = self._update(x, u)
             self._losses.append(loss)
             print('Iter: {} - Loss: {:.4f}'.format(t, loss))
             if signal:
                 break
-        print('CMeans clustering finished!')
 
         self._fitted = True
         self._center = v
@@ -127,5 +133,5 @@ class CMeansClustering(Cluster):
             signal = True
         else:
             signal = False
-            
+
         return u, v, loss, signal

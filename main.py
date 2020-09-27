@@ -2,12 +2,15 @@ import argparse
 from typing import Tuple
 
 import numpy as np
+from sklearn.metrics import accuracy_score
+from sklearn.utils import shuffle
 
-from tsfs.clustering import CMeansClustering
+from tsfs.classifier import Classifier
 
 parser = argparse.ArgumentParser(description='Takagi-Sugeno fuzzy system for FEHI')
 
 parser.add_argument('--dataset', type=str, help='Dataset to use in the experiment')
+parser.add_argument('--n_cluster', type=int, help='Number of clusters for C-Means clustering')
 
 
 def parse_dataset(path: str) -> Tuple:
@@ -30,10 +33,26 @@ def main():
     """Entry point of the application"""
     flags = parser.parse_args()
 
+    # load and shuffle data
     x, y = parse_dataset(flags.dataset)
+    x, y = shuffle(x, y, random_state=0)
 
-    cls = CMeansClustering(n_clusters=2)
-    cls.fit(x, y)
+    # prepare train/test split
+    x_train = x[:125]
+    y_train = y[:125]
+
+    x_test = x[125:]
+    y_test = y[125:]
+
+    # fit the fuzzy classifier
+    cls = Classifier()
+    cls.fit(x_train, y_train)
+
+    # predict
+    y_pred = cls.predict(x_test)
+
+    accuracy = accuracy_score(y_test, y_pred)
+    print(f'Accuracy: {accuracy}')
 
 
 if __name__ == '__main__':
