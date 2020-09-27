@@ -127,4 +127,5 @@ class CMeansClustering(Cluster):
             signal = True
         else:
             signal = False
+            
         return u, v, loss, signal
