@@ -45,24 +45,24 @@ def apply_firing_level(x: np.ndarray, firing_levels: np.ndarray, order: int = 1)
 
 
 class Classifier:
-    def __init__(self, c: float = 1., regressor_iters: int = 200, n_cluster: int = 2, order: int = 1):
+    def __init__(self, c: float = 1., max_iters: int = 200, n_cluster: int = 2, order: int = 1):
         """
         Fuzzy classifier class
 
         :param c: (float) c-coefficient for linear regressor estimator
-        :param regressor_iters: (int) max iters for logistic regression fitting
+        :param max_iters: (int) max iters for logistic regression fitting
         :param n_cluster: (int) Number of clusters
         :param order: (int) Order of the method. Valid values are 0 or 1
         """
         self._c = c
-        self._regressor_iters = regressor_iters
-        self._n_cluster = n_cluster
+        self._max_iters = max_iters
+        self._n_clusters = n_cluster
         self._order = order
 
         self._n_classes = None
         self._center = None
         self._variance = None
-        self._experts = None
+        self._regression = None
 
     def fit(self, x: np.ndarray, y: np.ndarray) -> Any:
         """
@@ -73,7 +73,7 @@ class Classifier:
         """
         self._n_classes = len(np.unique(y))
 
-        cluster = CMeansClustering(self._n_cluster).fit(x, y)
+        cluster = CMeansClustering(self._n_clusters).fit(x, y)
 
         self._center = cluster.center
         self._variance = cluster.delta
@@ -81,8 +81,8 @@ class Classifier:
         mu_a = compute_firing_level(x, self._center, self._variance)
         computed_input = apply_firing_level(x, mu_a, self._order)
 
-        self._experts = LogisticRegression(C=self._c, max_iter=self._regressor_iters)
-        self._experts.fit(computed_input, y)
+        self._regression = LogisticRegression(C=self._c, max_iter=self._max_iters)
+        self._regression.fit(computed_input, y)
 
         return self
 
@@ -97,6 +97,6 @@ class Classifier:
 
         computed_input = apply_firing_level(x, firing_levels, self._order)
 
-        logits = self._experts.decision_function(computed_input)
+        logits = self._regression.decision_function(computed_input)
 
         return np.argmax(softmax(logits, axis=1), axis=1)
