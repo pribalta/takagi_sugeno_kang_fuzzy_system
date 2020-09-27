@@ -3,6 +3,8 @@ from typing import Tuple
 
 import numpy as np
 
+from tsfs.clustering import CMeansClustering
+
 parser = argparse.ArgumentParser(description='Takagi-Sugeno fuzzy system for FEHI')
 
 parser.add_argument('--dataset', type=str, help='Dataset to use in the experiment')
@@ -29,6 +31,9 @@ def main():
     flags = parser.parse_args()
 
     x, y = parse_dataset(flags.dataset)
+
+    cls = CMeansClustering(n_clusters=2)
+    cls.fit(x, y)
 
 
 if __name__ == '__main__':
