@@ -8,8 +8,8 @@ The classifier is built around two components:
 * C-Means clustering with the purpose of computing the firing levels relative to each input
 * A logistic regressor that performs the fitting adapted to the conditioned firing levels
 
-The implementation of the C-Means clustering method can be found in [tsfs/clustering.py](tsfs/clustering.py)
-The implementation of the fuzzy classifier can be found in [tsfs/clustering.py](tsfs/classifier.py)
+The implementation of the C-Means clustering method can be found in [tsk/clustering.py](tsk/clustering.py)
+The implementation of the fuzzy classifier can be found in [tsk/clustering.py](tsk/classifier.py)
 
 ## Data
 
@@ -17,7 +17,7 @@ The data used for training is available in [data/iris.csv](data/iris.csv). The s
 in this repository come from the famous [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set).
 
 The Iris flower data set is a multivariate data set consisting of 50 samples from each of three species of Iris 
-(Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width
+(Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: he length and the width
  of the sepals and petals, in centimeters. Based on the combination of these four features, it is possible to develop a 
  discriminant model to distinguish the species from each other.
 

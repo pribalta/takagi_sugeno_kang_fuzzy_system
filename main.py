@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.metrics import accuracy_score
 from sklearn.utils import shuffle
 
-from tsfs.classifier import Classifier
+from tsk.classifier import Classifier
 
 parser = argparse.ArgumentParser(description='Takagi-Sugeno fuzzy system for FEHI')
 

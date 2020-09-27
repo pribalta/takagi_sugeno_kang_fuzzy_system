@@ -4,7 +4,7 @@ import numpy as np
 from scipy.special import softmax
 from sklearn.linear_model import LogisticRegression
 
-from tsfs.clustering import CMeansClustering
+from tsk.clustering import CMeansClustering
 
 
 def compute_firing_level(data: np.ndarray, centers: int, delta: float) -> np.ndarray:
