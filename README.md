@@ -17,7 +17,7 @@ The data used for training is available in [data/iris.csv](data/iris.csv). The s
 in this repository come from the famous [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set).
 
 The Iris flower data set is a multivariate data set consisting of 50 samples from each of three species of Iris 
-(Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: he length and the width
+(Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: The length and the width
  of the sepals and petals, in centimeters. Based on the combination of these four features, it is possible to develop a 
  discriminant model to distinguish the species from each other.
 
@@ -27,6 +27,10 @@ There are two ways to begin using the code in this repository:
 
 1. Build the docker container that is provided as defined in the Dockerfile (**Preferred**)
 2. Ensure you have PyThon 3.6 installed in your system and fetch the additional requiremens specified in ``requirement.txt``
+
+```
+$ pip3 install -r requirements.txt
+```
 
 
 ## Quickstart guide 
