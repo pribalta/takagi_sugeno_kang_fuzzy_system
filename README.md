@@ -1,4 +1,4 @@
-# Takagi-Sugeno Fuzzy System
+# Takagi-Sugeno-Kang Fuzzy System
 
 ## Overview
 
