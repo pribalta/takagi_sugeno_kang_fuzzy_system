@@ -55,44 +55,49 @@ The output displays the fitting process and shows the achieved accuracy:
 
 ```bash
 $ python main.py --dataset data/iris.csv --n_cluster 2
-Iter: 0 - Loss: 245.5040
-Iter: 1 - Loss: 144.6684
-Iter: 2 - Loss: 140.6356
-Iter: 3 - Loss: 123.1583
-Iter: 4 - Loss: 87.8052
-Iter: 5 - Loss: 70.4500
-Iter: 6 - Loss: 68.9995
-Iter: 7 - Loss: 68.9192
-Iter: 8 - Loss: 68.9110
-Iter: 9 - Loss: 68.9099
-Iter: 10 - Loss: 68.9098
-Iter: 11 - Loss: 68.9097
-Iter: 12 - Loss: 68.9097
-Iter: 13 - Loss: 68.9097
-Accuracy: 0.88
+Loaded dataset from: data/iris.csv
+Number of training samples: 125
+Number of test samples: 25
+Fitting classifier to data:
+	iter: 0 - loss: 218.6259
+	iter: 1 - loss: 116.7424
+	iter: 2 - loss: 89.3245
+	iter: 3 - loss: 67.0880
+	iter: 4 - loss: 63.8012
+	iter: 5 - loss: 63.6859
+	iter: 6 - loss: 63.6811
+	iter: 7 - loss: 63.6807
+	iter: 8 - loss: 63.6806
+	iter: 9 - loss: 63.6806
+	iter: 10 - loss: 63.6806
+	iter: 11 - loss: 63.6806
+Predicting unseen data:
+	accuracy: 0.88
 ```
 
 You can experiment with the ``--n_cluster`` flag in order to achieve a better accuracy.
 
 ```bash
 $ python main.py --dataset data/iris.csv --n_cluster 5
-Iter: 0 - Loss: 248.0536
-Iter: 1 - Loss: 144.9909
-Iter: 2 - Loss: 144.9004
-Iter: 3 - Loss: 144.7798
-Iter: 4 - Loss: 144.1407
-Iter: 5 - Loss: 140.6302
-Iter: 6 - Loss: 125.3837
-Iter: 7 - Loss: 91.7900
-Iter: 8 - Loss: 71.9566
-Iter: 9 - Loss: 69.9073
-Iter: 10 - Loss: 69.7892
-Iter: 11 - Loss: 69.7763
-Iter: 12 - Loss: 69.7744
-Iter: 13 - Loss: 69.7741
-Iter: 14 - Loss: 69.7741
-Iter: 15 - Loss: 69.7741
-Iter: 16 - Loss: 69.7741
-Iter: 17 - Loss: 69.7741
-Accuracy: 1.0
+Loaded dataset from: data/iris.csv
+Number of training samples: 125
+Number of test samples: 25
+Fitting classifier to data:
+	iter: 0 - loss: 223.7359
+	iter: 1 - loss: 140.9750
+	iter: 2 - loss: 140.1536
+	iter: 3 - loss: 135.9419
+	iter: 4 - loss: 119.5171
+	iter: 5 - loss: 87.6509
+	iter: 6 - loss: 70.6772
+	iter: 7 - loss: 69.0612
+	iter: 8 - loss: 68.9887
+	iter: 9 - loss: 68.9825
+	iter: 10 - loss: 68.9817
+	iter: 11 - loss: 68.9816
+	iter: 12 - loss: 68.9816
+	iter: 13 - loss: 68.9816
+	iter: 14 - loss: 68.9816
+Predicting unseen data:
+	accuracy: 1.0
 ```
