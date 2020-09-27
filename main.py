@@ -35,7 +35,7 @@ def main():
 
     # load and shuffle data
     x, y = parse_dataset(flags.dataset)
-    x, y = shuffle(x, y, random_state=0)
+    x, y = shuffle(x, y)
 
     # prepare train/test split
     x_train = x[:125]
