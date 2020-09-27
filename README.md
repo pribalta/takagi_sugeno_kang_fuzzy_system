@@ -26,7 +26,7 @@ The Iris flower data set is a multivariate data set consisting of 50 samples fro
 There are two ways to begin using the code in this repository:
 
 1. Build the docker container that is provided as defined in the Dockerfile (**Preferred**)
-2. Ensure you have PyThon 3.6 installed in your system and fetch the additional requiremens specified in ``requirement.txt``
+2. Ensure you have PyThon 3.6 and the PIP package manager installed in your system and fetch the additional requiremens specified in ``requirement.txt``
 
 ```
 $ pip3 install -r requirements.txt
