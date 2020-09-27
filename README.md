@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains the implementation of a fuzzy classifier following the formulation of a Takagi-Sugeno Fuzzy system.
+This repository contains the implementation of a fuzzy classifier following the formulation of a Takagi-Sugeno-Kang Fuzzy system.
 
 The classifier is built around two components:
 * C-Means clustering with the purpose of computing the firing levels relative to each input
