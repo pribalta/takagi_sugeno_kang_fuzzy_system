@@ -1,4 +1,3 @@
-from abc import ABC, abstractmethod
 from typing import Any, Tuple
 
 import numpy as np
@@ -26,19 +25,7 @@ def distance(u: np.ndarray, v: np.ndarray) -> float:
     return np.sqrt(np.sum((u - v) ** 2, axis=1))
 
 
-class Cluster(ABC):
-    @abstractmethod
-    def fit(self, x: np.ndarray, y: np.ndarray) -> Any:
-        """
-        Fit input to distribution
-        :param x: (np.ndarray) Input values
-        :param y: (np.ndarray) Evaluation result
-        :return: None
-        """
-        return NotImplementedError
-
-
-class CMeansClustering(Cluster):
+class CMeansClustering:
     def __init__(self, n_clusters: int, error: float = 1e-4, max_iters: int = 200):
         """
         Constructor of C-Means Clustering
